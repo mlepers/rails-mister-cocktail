@@ -21,4 +21,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+ajoute un bouton delete
+création de la route
+création de la méthode
+redirection vers la show du cocktail
