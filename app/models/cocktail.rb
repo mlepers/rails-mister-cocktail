@@ -1,4 +1,5 @@
 class Cocktail < ApplicationRecord
-
-    validates :name, length: {minimum: 10}
+    has_many :doses, dependent: :destroy
+    has_many :ingredients, through: :doses
+    validates :name, uniqueness: true, presence: true
 end
