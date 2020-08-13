@@ -1,10 +1,31 @@
-<h1>Cocktails List</h1>
+<div class="row ">
+  <div class="col-12 mt-5 mb-5">
+    <div class="h1 text-center">Cocktails List</div>
+  </div>
+</div>
 
-<%@cocktails.each do |cocktail| %>
-<%= cocktail.name %>
-<%= link_to "See details",cocktail_path(cocktail)%>
-<%= link_to "Edit",edit_cocktail_path(cocktail)%>
-<% end  %>
+<!-- <%= link_to "Add a new cocktail",new_cocktail_path, class:"text-warning"%> -->
 
 
-<%= link_to "Add a new cocktail",new_cocktail_path%>
+<div class="row">
+    <%@cocktails.each do |cocktail| %>
+    <div class="col-4">
+      <div class="card border-light mb-3" style="width: 18rem;">
+        <img class="card-img-top " src="<%= cocktail.image_url %>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title text-center"><%= cocktail.name %></h5>
+          <div class = "d-flex justify-content-between">
+          <div>
+          <%= link_to "See details",cocktail_path(cocktail), class:"text-success"%> <i class="far fa-eye text-success"></i>
+          </div>
+          <div>
+          <%= link_to "Edit",edit_cocktail_path(cocktail), class:"text-warning"%> <i class="fas fa-pen text-warning"></i>
+          </div>
+          </div>
+          
+        </div>
+      </div>
+      </div>
+    <% end  %>
+  
+</div>

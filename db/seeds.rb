@@ -8,28 +8,28 @@
 
 
 
+
+require 'json'
+require 'open-uri'
+
 Cocktail.destroy_all
 Ingredient.destroy_all
 Dose.destroy_all
 
-mojito = Cocktail.new(name: "Mojito")
-mojito.save
-Cocktail.new(name: "Tequila").save
+Cocktail.new(name: "Mojito", image_url: "https://images.unsplash.com/photo-1546171753-97d7676e4602?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80").save
+Cocktail.new(name: "Tequila", image_url: "https://images.unsplash.com/photo-1550512358-5c497af22d15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80").save
 
-menthe = Ingredient.new(name: "Menthe")
-menthe.save 
+url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+ingredient_serialized = open(url).read
+ingredient = JSON.parse(ingredient_serialized)
 
-fraise = Ingredient.new(name: "Fraise")
-fraise.save 
+ingredient["drinks"].each_with_index do |ingredient, index|
+    if index < 10
+    cocktail_ingredient = ingredient["strIngredient1"]
+    Ingredient.new(name: cocktail_ingredient).save
+    end
+end
 
 
 
-a_lot = Dose.new(description: "a lot")
-a_lot.cocktail = mojito
-a_lot.ingredient = menthe
-a_lot.save
 
-a_few = Dose.new(description: "a fiew")
-a_few.cocktail = mojito
-a_few.ingredient = fraise
-a_few.save
