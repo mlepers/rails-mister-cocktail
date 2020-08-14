@@ -14,7 +14,9 @@
     <%@cocktails.each do |cocktail| %>
     <div class="col-4 ">
       <div class="card border-light mb-3" style="width: 18rem;">
+      <%unless cocktail.photo.attachment.nil?%>
         <%= cl_image_tag cocktail.photo.key, alt: "Card image", class: "card-img-top image-card-size" %>
+      <%end  %>
         <div class="card-body">
           <h5 class="card-title text-center"><%= cocktail.name %></h5>
           <div class = "d-flex justify-content-between">

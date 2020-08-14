@@ -2,7 +2,9 @@
 <div class="row align-items-center">
   <div class="col-6">
     <div class="card" style="width: 18rem;">
+    <%unless @cocktail.photo.attachment.nil?%>
       <%= cl_image_tag @cocktail.photo.key, class: "card-img-top image-card-size" %>
+    <%end %>
       <div class="card-body">
         <h5 class="card-title"><%= @cocktail.name %></h5>
         <p class="card-text">
