@@ -15,40 +15,42 @@
 
   <body class = "bg-dark">
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-  <a class="navbar-brand" href="#">
-      <div class="h1">
-      <%= link_to "Mister cocktail",cocktails_path, class: "text-secondary"%>
-      <i class="fas fa-cocktail"></i>
-      </div>
-     </a>
-      
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-     
-      
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Choose a cocktail
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">     
-        <% @cocktails.each do |cocktail| %>
-          <%= link_to cocktail.name, cocktail_path(cocktail), class:"dropdown-item" %>
-        <% end %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <a class="navbar-brand" href="#">
+        <div class="h1">
+        <%= link_to "Mister cocktail",cocktails_path, class: "text-secondary"%>
+        <i class="fas fa-cocktail"></i>
         </div>
-      </li>
-    </ul>
-      <%= link_to "Add a new cocktail",new_cocktail_path, class:"nav-link btn btn-secondary" %>
-  </div>
-</nav>
+      </a>
+        
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-<div class="container mt-3">
-<%= yield %>
-</div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Choose a cocktail
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">     
+          <% @cocktails.each do |cocktail| %>
+            <%= link_to cocktail.name, cocktail_path(cocktail), class:"dropdown-item" %>
+          <% end %>
+          </div>
+        </li>
+      </ul>
+        <%= link_to "Add a new cocktail",new_cocktail_path, class:"nav-link btn btn-secondary" %>
+    </div>
+  </nav>
+
+    <div class="background-color-grey container-min-height">
+      <div class="container pt-3">
+        <%= yield %>
+      </div>
+    </div>
     
   </body>
 </html>

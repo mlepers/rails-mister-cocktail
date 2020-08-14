@@ -12,6 +12,10 @@
 @import "components/index";
 @import "pages/index";
 
-.background-color-pink {
-    background-color: pink;
+.background-color-grey {
+    background: linear-gradient(grey, #9198e5);
+}
+
+.container-min-height {
+    min-height: calc(100vh - 50px);
 }
