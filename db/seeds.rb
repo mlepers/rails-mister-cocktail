@@ -16,8 +16,8 @@ Cocktail.destroy_all
 Ingredient.destroy_all
 Dose.destroy_all
 
-Cocktail.new(name: "Mojito", image_url: "https://images.unsplash.com/photo-1546171753-97d7676e4602?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80").save
-Cocktail.new(name: "Tequila", image_url: "https://images.unsplash.com/photo-1550512358-5c497af22d15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80").save
+Cocktail.new(name: "Mojito").save
+Cocktail.new(name: "Tequila").save
 
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 ingredient_serialized = open(url).read
