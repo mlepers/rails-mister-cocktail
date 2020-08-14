@@ -16,8 +16,7 @@ Cocktail.destroy_all
 Ingredient.destroy_all
 Dose.destroy_all
 
-Cocktail.new(name: "Mojito").save
-Cocktail.new(name: "Tequila").save
+
 
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 ingredient_serialized = open(url).read
@@ -31,5 +30,16 @@ ingredient["drinks"].each_with_index do |ingredient, index|
 end
 
 
+
+file = URI.open('https://images.unsplash.com/photo-1551024709-8f23befc6f87?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
+cocktail = Cocktail.new(name: "Mojito")
+cocktail.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+cocktail.save
+
+
+file = URI.open('https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80')
+cocktail2 = Cocktail.new(name: "Bière")
+cocktail2.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+cocktail2.save
 
 
